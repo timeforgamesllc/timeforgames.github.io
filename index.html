@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Time for Games</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- About Section -->
+  <section id="about">
+    <header class="navbar">
+      <div class="logo">Time for Games</div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#listings">Listings</a>
+        <a href="#view">View Listings</a>
+      </nav>
+    </header>
+    <div class="about-content">
+      <div class="about-text">
+        <h2>About Time for Games</h2>
+        <p>We specialize in rare games and collectibles for fans and collectors.</p>
+      </div>
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1606813909364-7fbb2eb79db2?crop=entropy&cs=tinysrgb&fit=max&h=300&w=400" alt="About Image">
+      </div>
+    </div>
+  </section>
+
+  <!-- eBay Listings Section -->
+  <section id="listings">
+    <h2>Active eBay Listings</h2>
+    <div class="listing-grid">
+      <div class="listing-card">
+        <img src="https://images.unsplash.com/photo-1612831662689-2b9113c124e5?crop=entropy&cs=tinysrgb&fit=max&h=300&w=300" alt="Game 1">
+        <h3>Game 1</h3>
+        <p class="price">$29.99</p>
+        <a href="#" class="cta-btn">View on eBay</a>
+      </div>
+      <div class="listing-card">
+        <img src="https://images.unsplash.com/photo-1612831455548-fd7eeb9f4d8b?crop=entropy&cs=tinysrgb&fit=max&h=300&w=300" alt="Game 2">
+        <h3>Game 2</h3>
+        <p class="price">$15.00</p>
+        <a href="#" class="cta-btn">View on eBay</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hero Section (plain black) -->
+  <section id="view">
+    <div class="hero-content">
+      <h1>Discover the Best Games & Collectibles</h1>
+      <p>Handpicked items from our eBay store.</p>
+      <a href="#listings" class="cta-btn">View Listings</a>
+    </div>
+  </section>
+
+  <!-- Socials Section -->
+  <section id="socials">
+    <h2>Follow Us</h2>
+    <div class="social-image-container">
+      <a href="#" target="_blank" class="social-link">
+        <img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?crop=entropy&cs=tinysrgb&fit=max&h=150&w=300" alt="Instagram">
+        <span class="social-text">Instagram</span>
+      </a>
+      <a href="#" target="_blank" class="social-link">
+        <img src="https://images.unsplash.com/photo-1523475496153-3ed1c63f9f3b?crop=entropy&cs=tinysrgb&fit=max&h=150&w=300" alt="Facebook">
+        <span class="social-text">Facebook</span>
+      </a>
+      <a href="#" target="_blank" class="social-link">
+        <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?crop=entropy&cs=tinysrgb&fit=max&h=150&w=300" alt="Twitter">
+        <span class="social-text">Twitter</span>
+      </a>
+      <a href="#" target="_blank" class="social-link">
+        <img src="https://images.unsplash.com/photo-1589571894960-20bbe2828a33?crop=entropy&cs=tinysrgb&fit=max&h=150&w=300" alt="YouTube">
+        <span class="social-text">YouTube</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© <span id="year"></span> Time for Games | Powered by GitHub Pages</p>
+  </footer>
+
+  <!-- Scroll Background Script -->
+  <script>
+    const sections = document.querySelectorAll('section');
+    const colors = ['#161b22', '#1b222b', '#0d1117', '#232b36'];
+    const body = document.body;
+
+    function hexToRgb(hex) {
+      const bigint = parseInt(hex.replace('#',''),16);
+      const r = (bigint >> 16) & 255;
+      const g = (bigint >> 8) & 255;
+      const b = bigint & 255;
+      return {r,g,b};
+    }
+
+    function lerp(a, b, t) { return a + (b - a) * t; }
+
+    function updateBackground() {
+      const scrollPos = window.scrollY + window.innerHeight / 2;
+
+      for (let i = 0; i < sections.length; i++) {
+        const section = sections[i];
+        const nextSection = sections[i+1];
+
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+
+        if (scrollPos >= top && (!nextSection || scrollPos < nextSection.offsetTop)) {
+          if (nextSection) {
+            const t = (scrollPos - top) / height;
+            const c1 = hexToRgb(colors[i]);
+            const c2 = hexToRgb(colors[i+1]);
+            body.style.backgroundColor = `rgb(
+              ${Math.round(lerp(c1.r, c2.r, t))},
+              ${Math.round(lerp(c1.g, c2.g, t))},
+              ${Math.round(lerp(c1.b, c2.b, t))}
+            )`;
+          } else {
+            body.style.backgroundColor = colors[i];
+          }
+          break;
+        }
+      }
+    }
+
+    window.addEventListener('scroll', updateBackground);
+    window.addEventListener('load', updateBackground);
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
