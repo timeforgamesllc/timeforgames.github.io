@@ -68,42 +68,18 @@
     const seller = "timeforgamesllc";
     const listingsContainer = document.getElementById("listings-container");
 
-    async function fetchEbayListings() {
-      try {
-        const response = await fetch(`https://api.ebay.com/buy/browse/v1/item_summary/search?seller_ids=${seller}&limit=10`, {
-          headers: {
-            "Authorization": `Bearer ${appId}`,
-            "Content-Type": "application/json"
-          }
-        });
+async function fetchEbayListings() {
+  try {
+    const response = await fetch("https://b8718bb7-2223-4ca5-a938-6229ca20b5a7-00-2xz7fedpuvcf4.spock.replit.dev/listings");
+    const data = await response.json();
+    displayListings(data.itemSummaries || []);
+  } catch (error) {
+    listingsContainer.innerHTML = "<p>Unable to load listings right now.</p>";
+    console.error(error);
+  }
+}
 
-        if (!response.ok) throw new Error("Failed to fetch listings");
-
-        const data = await response.json();
-        displayListings(data.itemSummaries || []);
-      } catch (error) {
-        listingsContainer.innerHTML = "<p>Unable to load listings right now.</p>";
-        console.error(error);
-      }
-    }
-
-    function displayListings(items) {
-      if (items.length === 0) {
-        listingsContainer.innerHTML = "<p>No listings found.</p>";
-        return;
-      }
-
-      listingsContainer.innerHTML = items.map(item => `
-        <div class="listing-card">
-          <img src="${item.image.imageUrl}" alt="${item.title}">
-          <h3>${item.title}</h3>
-          <p>$${item.price.value} ${item.price.currency}</p>
-          <a href="${item.itemWebUrl}" target="_blank">View on eBay</a>
-        </div>
-      `).join('');
-    }
-
-    fetchEbayListings();
+fetchEbayListings();
   </script>
 
 </body>
