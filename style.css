@@ -1,41 +1,52 @@
-/* General Styles */
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
   background-color: #0d1117;
   color: #f5f5f5;
-  line-height: 1.6;
 }
 
-a { text-decoration: none; }
-
-/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1em 3em;
+  padding: 1.2em 3em;
   background-color: #161b22;
   position: sticky;
   top: 0;
-  z-index: 1000;
 }
 
-.logo { font-size: 1.5em; font-weight: 700; color: #ffcd00; }
-nav a { color: #c9d1d9; margin-left: 1.5em; transition: color 0.3s; }
+.logo {
+  font-size: 1.5em;
+  font-weight: 700;
+  color: #ffcd00;
+}
+
+nav a {
+  color: #c9d1d9;
+  text-decoration: none;
+  margin-left: 1.5em;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
 nav a:hover { color: #58a6ff; }
 
-/* Sections */
-section { padding: 4em 3em; text-align: center; }
-.section-hero { background-color: #000; }
-.section-about { background-color: #1c1c1c; }
-.section-ebay { background-color: #262626; }
-.section-socials { background-color: #333; }
+section {
+  padding: 4em 3em;
+  text-align: center;
+}
 
-h1, h2 { color: #ffcd00; margin-bottom: 1em; }
+.section-hero { background: #000; }
+.section-about { background: #1a1a1a; }
+.section-ebay { background: #222; }
+.section-socials { background: #2a2a2a; }
 
-/* eBay Listings */
-#listings-container { display: flex; flex-wrap: wrap; justify-content: center; }
+#listings-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .listing-card {
   background: #161b22;
   border-radius: 10px;
@@ -44,7 +55,12 @@ h1, h2 { color: #ffcd00; margin-bottom: 1em; }
   width: 200px;
   text-align: center;
 }
-.listing-card img { width: 100%; border-radius: 8px; }
+
+.listing-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
 .listing-card h3 { font-size: 1em; margin: 0.5em 0; }
 .listing-card p { color: #58a6ff; font-weight: bold; }
 .listing-card a {
@@ -57,13 +73,15 @@ h1, h2 { color: #ffcd00; margin-bottom: 1em; }
 }
 .listing-card a:hover { background-color: #1f6feb; }
 
-/* Socials */
-.socials-container { display: flex; justify-content: center; flex-wrap: wrap; }
+.socials-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 .social-card {
   position: relative;
   margin: 1em;
   width: 250px;
-  display: inline-block;
   color: #fff;
 }
 .social-card img { width: 100%; border-radius: 10px; }
@@ -73,22 +91,15 @@ h1, h2 { color: #ffcd00; margin-bottom: 1em; }
   left: 0;
   width: 100%;
   padding: 0.5em;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   font-weight: bold;
   border-radius: 0 0 10px 10px;
 }
 
-/* Footer */
 footer {
   text-align: center;
   padding: 1.5em;
   background-color: #161b22;
   color: #8b949e;
   font-size: 0.9em;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .listing-card { width: 90%; }
-  .socials-container { flex-direction: column; align-items: center; }
 }
