@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Time for Games</title>
+  <title>Time for Games | eBay Listings</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Navbar -->
   <header class="navbar">
     <div class="logo">Time for Games</div>
     <nav>
@@ -18,25 +17,21 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
   <section id="hero" class="section-hero">
     <h1>Welcome to Time for Games</h1>
     <p>Your one-stop shop for games and collectibles!</p>
   </section>
 
-  <!-- About Section -->
   <section id="about" class="section-about">
     <h2>About Time for Games</h2>
-    <p>We offer unique games, collectibles, and fun finds — updated regularly from our eBay store.</p>
+    <p>We specialize in rare, vintage, and modern games — directly from our verified eBay store.</p>
   </section>
 
-  <!-- eBay Listings Section -->
   <section id="ebay-listings" class="section-ebay">
     <h2>Our eBay Listings</h2>
     <div id="listings-container">Loading listings...</div>
   </section>
 
-  <!-- Socials Section -->
   <section id="socials" class="section-socials">
     <h2>Follow Us</h2>
     <div class="socials-container">
@@ -55,25 +50,23 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <p>© <span id="year"></span> Time for Games | Powered by GitHub Pages</p>
   </footer>
 
-  <!-- Scripts -->
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
 
     const listingsContainer = document.getElementById("listings-container");
 
     async function fetchEbayListings() {
       try {
-        const response = await fetch("https://b8718bb7-2223-4ca5-a938-6229ca20b5a7-00-2xz7fedpuvcf4.spock.replit.dev/listings");
+        const response = await fetch("https://YOUR-REPLIT-URL-HERE/listings");
         const data = await response.json();
         displayListings(data.itemSummaries || []);
       } catch (error) {
         listingsContainer.innerHTML = "<p>Unable to load listings right now.</p>";
-        console.error(error);
+        console.error("Fetch error:", error);
       }
     }
 
@@ -85,12 +78,12 @@
 
       listingsContainer.innerHTML = items.map(item => `
         <div class="listing-card">
-          <img src="${item.image.imageUrl}" alt="${item.title}">
+          <img src="${item.image?.imageUrl || 'https://via.placeholder.com/200x200?text=No+Image'}" alt="${item.title}">
           <h3>${item.title}</h3>
-          <p>$${item.price.value} ${item.price.currency}</p>
+          <p>$${item.price?.value || 'N/A'} ${item.price?.currency || ''}</p>
           <a href="${item.itemWebUrl}" target="_blank">View on eBay</a>
         </div>
-      `).join('');
+      `).join("");
     }
 
     fetchEbayListings();
