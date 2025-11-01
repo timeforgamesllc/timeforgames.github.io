@@ -1,93 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Time for Games | eBay Listings</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
+  <!-- Hero Section -->
   <header class="navbar">
     <div class="logo">Time for Games</div>
     <nav>
       <a href="#about">About</a>
-      <a href="#ebay-listings">eBay Listings</a>
+      <a href="#ebay">eBay Listings</a>
       <a href="#socials">Socials</a>
     </nav>
   </header>
 
-  <section id="hero" class="section-hero">
-    <h1>Welcome to Time for Games</h1>
-    <p>Your one-stop shop for games and collectibles!</p>
+  <section id="hero" class="section hero">
+    <div class="hero-text">
+      <h1>Welcome to Time for Games</h1>
+      <p>Discover unique games, collectibles, and fun finds!</p>
+    </div>
   </section>
 
-  <section id="about" class="section-about">
+  <!-- About Section -->
+  <section id="about" class="section about">
     <h2>About Time for Games</h2>
-    <p>We specialize in rare, vintage, and modern games — directly from our verified eBay store.</p>
+    <p>We specialize in rare and collectible games. Check out our eBay store for the latest listings!</p>
+    <img src="https://via.placeholder.com/600x300.png?text=About+Time+for+Games" alt="About">
   </section>
 
-  <section id="ebay-listings" class="section-ebay">
+  <!-- eBay Listings Section -->
+  <section id="ebay" class="section ebay">
     <h2>Our eBay Listings</h2>
-    <div id="listings-container">Loading listings...</div>
+    <div id="listings-container" class="listings-grid">
+      <p>Loading listings...</p>
+    </div>
   </section>
 
-  <section id="socials" class="section-socials">
+  <!-- Socials Section -->
+  <section id="socials" class="section socials">
     <h2>Follow Us</h2>
-    <div class="socials-container">
-      <a href="#" class="social-card">
-        <img src="https://via.placeholder.com/250x150?text=Instagram" alt="Instagram">
-        <span>Instagram</span>
+    <div class="social-grid">
+      <a href="#" target="_blank" class="social-card">
+        <img src="https://via.placeholder.com/300x200.png?text=Instagram" alt="Instagram">
+        <div class="overlay-text">Instagram</div>
       </a>
-      <a href="#" class="social-card">
-        <img src="https://via.placeholder.com/250x150?text=Twitter" alt="Twitter">
-        <span>Twitter</span>
+      <a href="#" target="_blank" class="social-card">
+        <img src="https://via.placeholder.com/300x200.png?text=Facebook" alt="Facebook">
+        <div class="overlay-text">Facebook</div>
       </a>
-      <a href="#" class="social-card">
-        <img src="https://via.placeholder.com/250x150?text=YouTube" alt="YouTube">
-        <span>YouTube</span>
+      <a href="#" target="_blank" class="social-card">
+        <img src="https://via.placeholder.com/300x200.png?text=YouTube" alt="YouTube">
+        <div class="overlay-text">YouTube</div>
       </a>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     <p>© <span id="year"></span> Time for Games | Powered by GitHub Pages</p>
   </footer>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // Update year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    const listingsContainer = document.getElementById("listings-container");
+    // Fetch eBay listings from your Replit endpoint
+    async function loadListings() {
+      const res = await fetch('https://b8718bb7-2223-4ca5-a938-6229ca20b5a7-00-2xz7fedpuvcf4.spock.replit.dev/listings');
+      const data = await res.json();
+      const container = document.getElementById('listings-container');
+      container.innerHTML = '';
 
-    async function fetchEbayListings() {
-      try {
-        const response = await fetch("https://YOUR-REPLIT-URL-HERE/listings");
-        const data = await response.json();
-        displayListings(data.itemSummaries || []);
-      } catch (error) {
-        listingsContainer.innerHTML = "<p>Unable to load listings right now.</p>";
-        console.error("Fetch error:", error);
+      if (data.itemSummaries && data.itemSummaries.length > 0) {
+        data.itemSummaries.forEach(item => {
+          const card = document.createElement('div');
+          card.className = 'listing-card';
+          card.innerHTML = `
+            <a href="${item.itemWebUrl}" target="_blank">
+              <img src="${item.image.imageUrl}" alt="${item.title}">
+              <p class="title">${item.title}</p>
+              <p class="price">$${item.price.value}</p>
+            </a>
+          `;
+          container.appendChild(card);
+        });
+      } else {
+        container.innerHTML = '<p>No listings found.</p>';
       }
     }
 
-    function displayListings(items) {
-      if (items.length === 0) {
-        listingsContainer.innerHTML = "<p>No listings found.</p>";
-        return;
-      }
-
-      listingsContainer.innerHTML = items.map(item => `
-        <div class="listing-card">
-          <img src="${item.image?.imageUrl || 'https://via.placeholder.com/200x200?text=No+Image'}" alt="${item.title}">
-          <h3>${item.title}</h3>
-          <p>$${item.price?.value || 'N/A'} ${item.price?.currency || ''}</p>
-          <a href="${item.itemWebUrl}" target="_blank">View on eBay</a>
-        </div>
-      `).join("");
-    }
-
-    fetchEbayListings();
+    loadListings();
   </script>
-
 </body>
 </html>
