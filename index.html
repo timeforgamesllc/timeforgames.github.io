@@ -69,7 +69,7 @@
 
 <script>
 async function loadListings() {
-  const res = await fetch('https://b8718bb7-2223-4ca5-a938-6229ca20b5a7-00-2xz7fedpuvcf4.spock.replit.dev/listings');
+  const res = await fetch('https://b8718bb7-2223-4ca5-a938-6229ca20b5a7-00-2xz7fedpuvcf4.spock.replit.dev:3000/listings');
   const data = await res.json();
   const container = document.getElementById('listings-container');
   container.innerHTML = '';
