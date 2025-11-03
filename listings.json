@@ -17,6 +17,24 @@
       "link": "https://www.ebay.com/itm/1122334455",
       "image": "https://via.placeholder.com/300x200.png?text=Rare+Holo",
       "price": "50 USD"
+    },
+    {
+      "title": "Pokemon Card Promo Set",
+      "link": "https://www.ebay.com/itm/2233445566",
+      "image": "https://via.placeholder.com/300x200.png?text=Promo+Set",
+      "price": "20 USD"
+    },
+    {
+      "title": "Pokemon TCG Booster Box",
+      "link": "https://www.ebay.com/itm/3344556677",
+      "image": "https://via.placeholder.com/300x200.png?text=Booster+Box",
+      "price": "120 USD"
+    },
+    {
+      "title": "Pokemon GX Card",
+      "link": "https://www.ebay.com/itm/4455667788",
+      "image": "https://via.placeholder.com/300x200.png?text=GX+Card",
+      "price": "35 USD"
     }
   ]
 }
