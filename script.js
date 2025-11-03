@@ -8,7 +8,7 @@ async function loadListings() {
     const res = await fetch(API_URL);
     const data = await res.json();
 
-    listingsDiv.innerHTML = ""; // Clear loading message
+    listingsDiv.innerHTML = "";
 
     if (!data.itemSummaries || data.itemSummaries.length === 0) {
       listingsDiv.innerHTML = "<p>No listings found.</p>";
