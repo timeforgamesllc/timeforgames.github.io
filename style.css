@@ -62,40 +62,39 @@ p {
   color: #c9d1d9;
 }
 
-/* eBay Listings */
-.listings-grid {
+.grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5em;
-  width: 100%;
-  max-width: 1200px;
-  margin-top: 2em;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
 }
 
-.listing-card {
-  background-color: #161b22;
-  padding: 1em;
-  border-radius: 12px;
-  transition: transform 0.3s ease;
-}
-
-.listing-card:hover {
-  transform: scale(1.05);
-}
-
-.listing-card img {
-  width: 100%;
+.card {
+  background: #1e1e1e;
   border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s;
 }
 
-.listing-card .title {
-  font-weight: 600;
-  margin-top: 0.5em;
+.card:hover {
+  transform: scale(1.03);
 }
 
-.listing-card .price {
-  color: #58a6ff;
-  margin-top: 0.25em;
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card h2 {
+  font-size: 1rem;
+  padding: 0.5rem;
+  margin: 0;
+}
+
+.card p {
+  padding: 0 0.5rem 0.5rem;
+  margin: 0;
 }
 
 /* Socials */
