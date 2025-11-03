@@ -1,3 +1,4 @@
+// Path to your JSON file
 const API_URL = "./listings.json";
 
 async function loadListings() {
@@ -15,7 +16,8 @@ async function loadListings() {
       return;
     }
 
-    const listingsToShow = data.itemSummaries.slice(0, 12);
+    // Take the first 6 listings
+    const listingsToShow = data.itemSummaries.slice(0, 6);
 
     listingsToShow.forEach(item => {
       const card = document.createElement("div");
@@ -35,4 +37,5 @@ async function loadListings() {
   }
 }
 
+// Load listings on page load
 loadListings();
