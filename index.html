@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Hero Section -->
+  <!-- Navbar -->
   <header class="navbar">
     <div class="logo">Time for Games</div>
     <nav>
@@ -17,6 +17,7 @@
     </nav>
   </header>
 
+  <!-- Hero Section -->
   <section id="hero" class="section hero">
     <div class="hero-text">
       <h1>Welcome to Time for Games</h1>
@@ -34,7 +35,7 @@
   <!-- eBay Listings Section -->
   <section id="ebay" class="section ebay">
     <h2>Our eBay Listings</h2>
-    <div id="listings-container" class="listings-grid">
+    <div id="listings" class="grid">
       <p>Loading listings...</p>
     </div>
   </section>
@@ -56,9 +57,6 @@
         <div class="overlay-text">YouTube</div>
       </a>
     </div>
-
-    <div id="loading">Loading listings...</div>
-    <div id="listings" class="grid"></div>
   </section>
 
   <!-- Footer -->
@@ -66,9 +64,10 @@
     <p>© <span id="year"></span> Time for Games | Powered by GitHub Pages</p>
   </footer>
 
-</div>
-
-
 <script src="script.js"></script>
+<script>
+  // Set current year in footer
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
