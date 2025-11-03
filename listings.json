@@ -1,0 +1,22 @@
+{
+  "itemSummaries": [
+    {
+      "title": "Pokemon Card XY",
+      "link": "https://www.ebay.com/itm/1234567890",
+      "image": "https://via.placeholder.com/300x200.png?text=Pokemon+Card+XY",
+      "price": "15 USD"
+    },
+    {
+      "title": "Pokemon Booster Pack",
+      "link": "https://www.ebay.com/itm/0987654321",
+      "image": "https://via.placeholder.com/300x200.png?text=Booster+Pack",
+      "price": "5 USD"
+    },
+    {
+      "title": "Rare Pokemon Holo Card",
+      "link": "https://www.ebay.com/itm/1122334455",
+      "image": "https://via.placeholder.com/300x200.png?text=Rare+Holo",
+      "price": "50 USD"
+    }
+  ]
+}
