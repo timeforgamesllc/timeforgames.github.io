@@ -4,6 +4,7 @@ body {
   font-family: "Poppins", sans-serif;
   color: #f5f5f5;
   line-height: 1.6;
+  background-color: #121212;
 }
 
 /* Navbar */
@@ -62,9 +63,11 @@ p {
   color: #c9d1d9;
 }
 
-.grid {
+/* Listings Grid */
+#listings {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  grid-auto-rows: auto;
   gap: 1rem;
   padding: 1rem;
 }
@@ -142,10 +145,19 @@ footer {
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+  #listings {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+  }
+}
+
 @media (max-width: 768px) {
   .hero-text, .about img {
     width: 100%;
     padding: 0 1em;
+  }
+  #listings {
+    grid-template-columns: 1fr; /* 1 column on mobile */
   }
 
   .social-card img {
