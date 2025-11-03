@@ -1,16 +1,17 @@
-const API_URL = "https://timeforgames-server.onrender.com/listings?q=pokemon";
+const query = "pokemon"; // You can change this or make it dynamic later
+const API_URL = `https://timeforgames-server.onrender.com/listings?q=${query}`;
 
 async function loadListings() {
   const listingsDiv = document.getElementById("listings");
-  const loadingDiv = document.getElementById("loading");
+  listingsDiv.innerHTML = "<p>Loading listings...</p>";
 
   try {
     const res = await fetch(API_URL);
     const data = await res.json();
 
-    loadingDiv.style.display = "none";
+    listingsDiv.innerHTML = ""; // clear loading
 
-    if (!data.itemSummaries) {
+    if (!data.itemSummaries || data.itemSummaries.length === 0) {
       listingsDiv.innerHTML = "<p>No listings found.</p>";
       return;
     }
@@ -28,7 +29,7 @@ async function loadListings() {
       listingsDiv.appendChild(card);
     });
   } catch (err) {
-    loadingDiv.innerText = "Error loading listings.";
+    listingsDiv.innerHTML = "<p>Error loading listings.</p>";
     console.error(err);
   }
 }
