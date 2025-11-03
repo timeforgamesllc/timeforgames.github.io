@@ -15,7 +15,10 @@ async function loadListings() {
       return;
     }
 
-    data.itemSummaries.forEach(item => {
+    // Show only the first 12 listings
+    const listingsToShow = data.itemSummaries.slice(0, 12);
+
+    listingsToShow.forEach(item => {
       const card = document.createElement("div");
       card.className = "card";
       card.innerHTML = `
