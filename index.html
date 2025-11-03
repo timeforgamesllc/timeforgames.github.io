@@ -56,6 +56,9 @@
         <div class="overlay-text">YouTube</div>
       </a>
     </div>
+
+    <div id="loading">Loading listings...</div>
+    <div id="listings" class="grid"></div>
   </section>
 
   <!-- Footer -->
@@ -63,36 +66,9 @@
     <p>© <span id="year"></span> Time for Games | Powered by GitHub Pages</p>
   </footer>
 
-  <div id="listings-container" class="listings-grid">
-  <p>Loading listings...</p>
 </div>
 
-<script>
-async function loadListings() {
-  const res = await fetch('https://b8718bb7-2223-4ca5-a938-6229ca20b5a7-00-2xz7fedpuvcf4.spock.replit.dev:3000/listings');
-  const data = await res.json();
-  const container = document.getElementById('listings-container');
-  container.innerHTML = '';
 
-  if (data.itemSummaries && data.itemSummaries.length > 0) {
-    data.itemSummaries.forEach(item => {
-      const card = document.createElement('div');
-      card.className = 'listing-card';
-      card.innerHTML = `
-        <a href="${item.itemWebUrl}" target="_blank">
-          <img src="${item.image.imageUrl}" alt="${item.title}">
-          <p class="title">${item.title}</p>
-          <p class="price">$${item.price.value}</p>
-        </a>
-      `;
-      container.appendChild(card);
-    });
-  } else {
-    container.innerHTML = '<p>No listings found.</p>';
-  }
-}
-
-loadListings();
-</script>
+<script src="script.js"></script>
 </body>
 </html>
