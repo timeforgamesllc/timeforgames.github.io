@@ -1,5 +1,4 @@
-const query = "pokemon"; // You can change this or make it dynamic later
-const API_URL = `https://timeforgames-server.onrender.com/listings?q=${query}`;
+const API_URL = "https://timeforgames-server.onrender.com/listings";
 
 async function loadListings() {
   const listingsDiv = document.getElementById("listings");
@@ -9,7 +8,7 @@ async function loadListings() {
     const res = await fetch(API_URL);
     const data = await res.json();
 
-    listingsDiv.innerHTML = ""; // clear loading
+    listingsDiv.innerHTML = ""; // Clear loading
 
     if (!data.itemSummaries || data.itemSummaries.length === 0) {
       listingsDiv.innerHTML = "<p>No listings found.</p>";
@@ -17,13 +16,16 @@ async function loadListings() {
     }
 
     data.itemSummaries.forEach(item => {
+      // Extract first image URL from the description HTML
+      const imgMatch = item.description.match(/<img.*?src="(.*?)"/);
+      const imageUrl = imgMatch ? imgMatch[1] : "https://via.placeholder.com/300x200.png?text=No+Image";
+
       const card = document.createElement("div");
       card.className = "card";
       card.innerHTML = `
-        <a href="${item.itemWebUrl}" target="_blank">
-          <img src="${item.image?.imageUrl || ''}" alt="${item.title}" />
+        <a href="${item.link}" target="_blank">
+          <img src="${imageUrl}" alt="${item.title}" />
           <h2>${item.title}</h2>
-          <p>💲${item.price?.value || 'N/A'} ${item.price?.currency || ''}</p>
         </a>
       `;
       listingsDiv.appendChild(card);
