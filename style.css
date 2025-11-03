@@ -25,8 +25,9 @@ html {
 }
 
 .logo a {
-  font-size: 1.5em;
-  font-weight: 700;
+  font-family: 'Henny Penny', cursive;
+  font-size: 1.8em; /* slightly bigger for logo */
+  font-weight: normal;
   color: #ffcd00;
   text-decoration: none;
 }
