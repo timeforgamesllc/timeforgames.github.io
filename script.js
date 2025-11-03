@@ -15,7 +15,6 @@ async function loadListings() {
       return;
     }
 
-    // Show only the first 12 listings
     const listingsToShow = data.itemSummaries.slice(0, 6);
 
     listingsToShow.forEach(item => {
