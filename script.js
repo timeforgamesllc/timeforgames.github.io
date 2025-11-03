@@ -16,7 +16,7 @@ async function loadListings() {
       return;
     }
 
-    // Take the first 6 listings
+    // Take the first 6 listings for 2x3 grid
     const listingsToShow = data.itemSummaries.slice(0, 6);
 
     listingsToShow.forEach(item => {
@@ -36,6 +36,32 @@ async function loadListings() {
     console.error(err);
   }
 }
+
+// Smooth background color scrolling
+const sections = document.querySelectorAll('.section');
+const sectionColors = {
+  hero: '#000000',
+  about: '#1a1a1a',
+  ebay: '#2a2a2a',
+  socials: '#333333'
+};
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY + window.innerHeight / 2;
+
+  let currentSectionId = sections[0].id;
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+
+    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+      currentSectionId = section.id;
+    }
+  });
+
+  document.body.style.backgroundColor = sectionColors[currentSectionId];
+});
 
 // Load listings on page load
 loadListings();
