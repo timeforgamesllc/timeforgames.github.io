@@ -1,4 +1,4 @@
-const API_URL = "https://timeforgames-server.onrender.com/listings";
+const API_URL = "./listings.json";
 
 async function loadListings() {
   const listingsDiv = document.getElementById("listings");
@@ -15,7 +15,7 @@ async function loadListings() {
       return;
     }
 
-    const listingsToShow = data.itemSummaries.slice(0, 6);
+    const listingsToShow = data.itemSummaries.slice(0, 12);
 
     listingsToShow.forEach(item => {
       const card = document.createElement("div");
