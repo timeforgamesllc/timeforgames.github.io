@@ -3,80 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Time for Games | eBay Listings</title>
+  <title>Time For Games</title>
 
-  <!-- Styles -->
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Henny+Penny&family=Averia+Sans+Libre&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
-
-  <!-- Favicon (optional) -->
-  <link rel="icon" type="image/png" href="https://via.placeholder.com/32.png?text=T" />
 </head>
 <body>
-
-  <!-- Navbar -->
-  <header class="navbar">
-    <a href="#hero" class="logo">Time for Games</a>
+  <!-- Navigation / Hero -->
+  <header class="hero">
+    <a href="#home" class="logo">Time For Games</a>
     <nav>
       <a href="#about">About</a>
       <a href="#ebay">eBay Listings</a>
-      <a href="#socials">Socials</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section id="hero" class="section hero">
-    <div class="hero-text">
-      <h1>Welcome to Time for Games</h1>
-      <p>Discover unique games, collectibles, and fun finds!</p>
-    </div>
+  <!-- Home Section -->
+  <section id="home" class="section">
+    <h1>Welcome to Time For Games!</h1>
+    <p>Find the best deals on Pokémon cards and collectibles.</p>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="section about">
-    <h2>About Time for Games</h2>
-    <p>We specialize in rare and collectible games. Check out our eBay store for the latest listings!</p>
-    <img src="https://via.placeholder.com/600x300.png?text=About+Time+for+Games" alt="About">
+  <section id="about" class="section">
+    <h2>About Us</h2>
+    <p>We specialize in Pokémon cards, TCG accessories, and all things collectible. Our goal is to bring fun and nostalgia to collectors everywhere.</p>
   </section>
 
   <!-- eBay Listings Section -->
   <section id="ebay" class="section ebay">
     <h2>Our eBay Listings</h2>
-    <div id="listings-container" class="listings-grid">
+    <div id="listings-container" class="listings-featured">
       <div id="loading">Loading listings...</div>
-      <div id="listings" class="grid"></div>
+      <div id="featured" class="featured-card"></div>
+      <div id="listings" class="small-grid"></div>
     </div>
   </section>
 
-  <!-- Socials Section -->
-  <section id="socials" class="section socials">
-    <h2>Follow Us</h2>
-    <div class="social-grid">
-      <a href="#" target="_blank" class="social-card">
-        <img src="https://via.placeholder.com/300x200.png?text=Instagram" alt="Instagram">
-        <div class="overlay-text">Instagram</div>
-      </a>
-      <a href="#" target="_blank" class="social-card">
-        <img src="https://via.placeholder.com/300x200.png?text=Facebook" alt="Facebook">
-        <div class="overlay-text">Facebook</div>
-      </a>
-      <a href="#" target="_blank" class="social-card">
-        <img src="https://via.placeholder.com/300x200.png?text=YouTube" alt="YouTube">
-        <div class="overlay-text">YouTube</div>
-      </a>
-    </div>
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <p>Follow us on <a href="https://www.ebay.com/usr/timeforgamesllc" target="_blank">eBay</a> or send us a message for more info!</p>
   </section>
 
-  <!-- Footer -->
   <footer>
-    <p>© <span id="year"></span> Time for Games | Powered by GitHub Pages</p>
+    <p>© 2025 Time For Games. All rights reserved.</p>
   </footer>
 
   <!-- Script -->
   <script src="script.js"></script>
-  <script>
-    // Auto update footer year
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-
 </body>
 </html>
