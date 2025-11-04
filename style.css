@@ -73,6 +73,7 @@ nav a:hover {
   justify-content: center;
   text-align: center;
   background-color: transparent;
+  transition: background-color 1s ease;
 }
 
 /* Section background colors fallback */
