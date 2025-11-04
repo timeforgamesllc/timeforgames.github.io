@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Time for Games | eBay Listings</title>
+  <title>timeforgames | eBay Listings</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre&family=Henny+Penny&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Hero Section -->
+  <!-- Navbar -->
   <header class="navbar">
-    <a href="#hero" class="logo">timeforgames</a>
+    <div class="logo">timeforgames</div>
     <nav>
       <a href="#about">About</a>
       <a href="#ebay">eBay Listings</a>
@@ -18,6 +17,7 @@
     </nav>
   </header>
 
+  <!-- Hero Section -->
   <section id="hero" class="section hero">
     <div class="hero-text">
       <h1>Welcome to Time for Games</h1>
@@ -35,9 +35,7 @@
   <!-- eBay Listings Section -->
   <section id="ebay" class="section ebay">
     <h2>Our eBay Listings</h2>
-    <div id="listings">
-      <p>Loading listings...</p>
-    </div>
+    <div id="listings" class="listings-grid"></div>
   </section>
 
   <!-- Socials Section -->
@@ -59,6 +57,7 @@
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     <p>© <span id="year"></span> Time for Games | Powered by GitHub Pages</p>
   </footer>
