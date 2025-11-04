@@ -1,40 +1,26 @@
-{
-  "itemSummaries": [
-    {
-      "title": "Pokemon Card XY",
-      "link": "https://www.ebay.com/itm/1234567890",
-      "image": "https://via.placeholder.com/300x200.png?text=Pokemon+Card+XY",
-      "price": "15 USD"
-    },
-    {
-      "title": "Pokemon Booster Pack",
-      "link": "https://www.ebay.com/itm/0987654321",
-      "image": "https://via.placeholder.com/300x200.png?text=Booster+Pack",
-      "price": "5 USD"
-    },
-    {
-      "title": "Rare Pokemon Holo Card",
-      "link": "https://www.ebay.com/itm/1122334455",
-      "image": "https://via.placeholder.com/300x200.png?text=Rare+Holo",
-      "price": "50 USD"
-    },
-    {
-      "title": "Pokemon Card Promo Set",
-      "link": "https://www.ebay.com/itm/2233445566",
-      "image": "https://via.placeholder.com/300x200.png?text=Promo+Set",
-      "price": "20 USD"
-    },
-    {
-      "title": "Pokemon TCG Booster Box",
-      "link": "https://www.ebay.com/itm/3344556677",
-      "image": "https://via.placeholder.com/300x200.png?text=Booster+Box",
-      "price": "120 USD"
-    },
-    {
-      "title": "Pokemon GX Card",
-      "link": "https://www.ebay.com/itm/4455667788",
-      "image": "https://via.placeholder.com/300x200.png?text=GX+Card",
-      "price": "35 USD"
-    }
-  ]
-}
+[
+  {
+    "title": "Featured: Pokémon Charizard EX Ultra Rare",
+    "price": "49.99",
+    "url": "https://www.ebay.com/itm/example1",
+    "image": "https://i.ebayimg.com/images/g/charizard.jpg"
+  },
+  {
+    "title": "Pokémon Pikachu Holo",
+    "price": "9.99",
+    "url": "https://www.ebay.com/itm/example2",
+    "image": "https://i.ebayimg.com/images/g/pikachu.jpg"
+  },
+  {
+    "title": "Pokémon Mewtwo V",
+    "price": "12.99",
+    "url": "https://www.ebay.com/itm/example3",
+    "image": "https://i.ebayimg.com/images/g/mewtwo.jpg"
+  },
+  {
+    "title": "Pokémon Gengar EX",
+    "price": "19.99",
+    "url": "https://www.ebay.com/itm/example4",
+    "image": "https://i.ebayimg.com/images/g/gengar.jpg"
+  }
+]
