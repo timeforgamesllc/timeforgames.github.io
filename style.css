@@ -14,10 +14,10 @@ body {
 /* === Navbar === */
 .navbar {
   display: flex;
-  justify-content: space-between; /* logo left, links right */
+  justify-content: space-between;
   align-items: center;
   padding: 1em 3em;
-  background-color: #1a1a1a; /* same as first section */
+  background-color: #1a1a1a;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -27,7 +27,7 @@ body {
 /* Logo */
 .logo {
   font-family: "Henny Penny", cursive;
-  font-size: 2em;
+  font-size: 2.6em; /* made bigger */
   color: #ffcd00;
   text-decoration: none;
   transition: transform 0.3s ease;
@@ -35,7 +35,7 @@ body {
 }
 
 .logo:hover {
-  transform: scale(1.1);
+  transform: scale(1.25); /* grows more noticeably */
 }
 
 /* Navigation Links */
@@ -45,6 +45,7 @@ nav {
   align-items: center;
   gap: 2rem;
   flex: 1;
+  margin-right: 2rem; /* moves links further to the right */
 }
 
 nav a {
@@ -224,6 +225,7 @@ footer {
     justify-content: center;
     margin-top: 0.5rem;
     gap: 1rem;
+    margin-right: 0;
   }
 
   nav a {
