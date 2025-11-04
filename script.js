@@ -3,7 +3,7 @@ const sections = document.querySelectorAll(".section");
 const sectionColors = ["#1a1a1a", "#2a2a2a", "#3a3a3a", "#4a4a4a"]; // colors for each section
 
 window.addEventListener("scroll", () => {
-  const scrollTop = window.scrollY;
+  const scrollTop = window.scrollY + window.innterHeight / 2;
 
   for (let i = 0; i < sections.length; i++) {
     const current = sections[i];
@@ -35,7 +35,8 @@ function hexToRgb(hex) {
     parseInt(hex.substring(4, 6), 16),
   ];
 }
-
+window.addEventListener("scroll", updateBackground);
+window.addEventListener("load", updateBackground);
 
 // === Load listings from local JSON file ===
 async function loadListings() {
