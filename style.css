@@ -1,69 +1,49 @@
-/* === General Styles === */
+/* General Styles */
 body {
   margin: 0;
-  font-family: "Averia Sans Libre", sans-serif;
+  font-family: 'Averia Sans Libre', sans-serif;
   color: #f5f5f5;
   line-height: 1.6;
-  font-size: 1.25rem;
-  font-weight: 600;
-  background-color: #1a1a1a;
-  scroll-behavior: smooth;
-  transition: background-color 1s ease;
+  transition: background-color 0.5s ease;
 }
 
-/* === Navbar === */
+/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1em 3em;
-  background-color: #1a1a1a;
   position: sticky;
   top: 0;
   z-index: 10;
-  flex-wrap: nowrap;
+  background-color: #1a1a1a; /* start with first section color */
 }
 
-/* Logo */
 .logo {
-  font-family: "Henny Penny", cursive;
-  font-size: 2.8em;
+  font-size: 2rem;
+  font-family: 'Henny Penny', cursive;
   color: #ffcd00;
-  text-decoration: none;
-  transition: transform 0.3s ease;
-  flex-shrink: 0;
-  margin-left: 1rem;
-  margin-top: 0.3rem;
+  cursor: pointer;
+  transition: transform 0.3s;
 }
 
 .logo:hover {
-  transform: scale(1.35);
-}
-
-/* Navigation Links */
-nav {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 2rem;
-  flex: 1;
-  margin-right: 3rem;
+  transform: scale(1.2);
 }
 
 nav a {
-  display: inline-block;
-  color: #3b82f6;
+  color: #58a6ff;
   text-decoration: none;
-  font-size: 1.2rem;
-  transition: transform 0.3s ease;
-  white-space: nowrap;
+  margin-left: 1.5em;
+  font-weight: 500;
+  transition: transform 0.3s;
 }
 
 nav a:hover {
   transform: scale(1.2);
 }
 
-/* === Sections === */
+/* Sections */
 .section {
   padding: 5em 2em;
   min-height: 100vh;
@@ -73,16 +53,9 @@ nav a:hover {
   justify-content: center;
   text-align: center;
   background-color: transparent;
-  margin: 0;
-  /*transition: background-color 1s ease;
 }
 
-/* Section background colors fallback */
-/*#hero { background-color: #1a1a1a; }
-#about { background-color: #2a2a2a; }
-#ebay { background-color: #3a3a3a; }
-#socials { background-color: #4a4a4a; }*/
-
+/* Titles */
 h1, h2 {
   color: #ffcd00;
   margin-bottom: 0.5em;
@@ -90,38 +63,34 @@ h1, h2 {
 
 p {
   color: #c9d1d9;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
-/* === eBay Listings === */
+/* Listings */
 #listings {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
+  width: 100%;
 }
 
-/* Featured Item */
 .featured-item {
   position: relative;
   width: 80%;
-  max-width: 1000px;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.featured-item:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 15px 3px #ffcd00;
+  max-width: 600px;
+  margin-bottom: 2rem;
 }
 
 .featured-item img {
   width: 100%;
-  height: 400px;
   object-fit: cover;
+  border-radius: 10px;
 }
 
-.overlay-title {
+.featured-item .overlay-title,
+.card .overlay-title {
   position: absolute;
   top: 0;
   width: 100%;
@@ -145,54 +114,34 @@ p {
   font-weight: bold;
 }
 
-/* Smaller Listing Grid */
+/* Smaller cards grid */
 .grid {
   display: flex;
   gap: 1.5rem;
   justify-content: center;
   flex-wrap: wrap;
-  width: 90%;
-  max-width: 1000px;
 }
 
-/* Uniform smaller cards */
 .card {
   position: relative;
+  width: 300px;
   background: #1e1e1e;
   border-radius: 8px;
   overflow: hidden;
   transition: transform 0.2s, box-shadow 0.3s;
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-}
-
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 10px 2px #ffcd00;
 }
 
 .card img {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  flex-shrink: 0;
 }
 
-.card h2 {
-  font-size: 1rem;
-  padding: 0.5rem;
-  margin: 0;
-  color: #ffcd00;
+.card:hover {
+  transform: scale(1.03);
 }
 
-.card p {
-  padding: 0 0.5rem 0.5rem;
-  margin: 0;
-  color: #c9d1d9;
-}
-
-/* === Socials Section === */
+/* Socials */
 .social-grid {
   display: flex;
   flex-wrap: wrap;
@@ -227,7 +176,7 @@ p {
   font-size: 1.1em;
 }
 
-/* === Footer === */
+/* Footer */
 footer {
   text-align: center;
   padding: 1.5em;
@@ -236,23 +185,16 @@ footer {
   font-size: 0.9em;
 }
 
-/* === Responsive === */
+/* Responsive */
 @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  .hero-text, .about img {
+    width: 100%;
+    padding: 0 1em;
   }
 
-  nav {
-    justify-content: center;
-    margin-top: 0.5rem;
-    gap: 1rem;
-    margin-right: 0;
-  }
-
-  nav a {
-    font-size: 1rem;
+  .social-card img {
+    width: 100%;
+    height: auto;
   }
 
   .grid {
