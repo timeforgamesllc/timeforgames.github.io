@@ -73,14 +73,14 @@ nav a:hover {
   justify-content: center;
   text-align: center;
   background-color: transparent;
-  transition: background-color 1s ease;
+  /*transition: background-color 1s ease;
 }
 
 /* Section background colors fallback */
-#hero { background-color: #1a1a1a; }
+/*#hero { background-color: #1a1a1a; }
 #about { background-color: #2a2a2a; }
 #ebay { background-color: #3a3a3a; }
-#socials { background-color: #4a4a4a; }
+#socials { background-color: #4a4a4a; }*/
 
 h1, h2 {
   color: #ffcd00;
