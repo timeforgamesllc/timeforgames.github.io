@@ -1,9 +1,10 @@
 // === Smooth background blending between sections ===
 const sections = document.querySelectorAll(".section");
-const sectionColors = ["#1a1a1a", "#2a2a2a", "#3a3a3a", "#4a4a4a"];
+const sectionColors = ["#1a1a1a", "#2a2a2a", "#3a3a3a", "#4a4a4a"]; // colors for each section
 
 window.addEventListener("scroll", () => {
   const scrollTop = window.scrollY;
+
   for (let i = 0; i < sections.length; i++) {
     const current = sections[i];
     const next = sections[i + 1];
@@ -16,17 +17,16 @@ window.addEventListener("scroll", () => {
       const startColor = hexToRgb(sectionColors[i]);
       const endColor = next ? hexToRgb(sectionColors[i + 1]) : startColor;
 
-      const blendedColor = startColor.map((c, idx) =>
+      const blended = startColor.map((c, idx) =>
         Math.round(c + percent * (endColor[idx] - c))
       );
 
-      document.body.style.backgroundColor = `rgb(${blendedColor.join(",")})`;
+      document.body.style.backgroundColor = `rgb(${blended.join(",")})`;
       break;
     }
   }
 });
 
-// Helper: convert hex color to [r,g,b]
 function hexToRgb(hex) {
   hex = hex.replace("#", "");
   return [
@@ -35,6 +35,7 @@ function hexToRgb(hex) {
     parseInt(hex.substring(4, 6), 16),
   ];
 }
+
 
 // === Load listings from local JSON file ===
 async function loadListings() {
