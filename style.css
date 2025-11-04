@@ -3,10 +3,11 @@ body {
   margin: 0;
   font-family: 'Averia Sans Libre', sans-serif;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: #f0f0f0;
   background: linear-gradient(180deg, #0b0c10, #1f2833);
   scroll-behavior: smooth;
+  transition: background 1.5s ease;
 }
 
 /* Hero Header */
@@ -25,36 +26,34 @@ body {
 
 .logo {
   font-family: 'Henny Penny', cursive;
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: #ffcd00;
   text-decoration: none;
+  transition: transform 0.3s ease;
 }
 
+.logo:hover {
+  transform: scale(1.1);
+}
+
+/* Navigation Links */
 .hero nav a {
   color: #fff;
   text-decoration: none;
-  margin-left: 1.5rem;
-  font-size: 1.2rem;
-  transition: color 0.3s ease;
+  margin-left: 1.8rem;
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
 }
 
 .hero nav a:hover {
-  color: #ffcd00;
+  transform: scale(1.2);
 }
 
 /* Sections */
 .section {
   padding: 8rem 2rem;
   text-align: center;
-  transition: background 1s ease;
-}
-
-.section:nth-child(odd) {
-  background: #0b0c10;
-}
-
-.section:nth-child(even) {
-  background: #1f2833;
+  min-height: 100vh;
 }
 
 .section h1, .section h2 {
@@ -147,4 +146,21 @@ footer {
   text-align: center;
   padding: 1.5rem 0;
   font-size: 1rem;
+}
+
+/* Smooth background color transitions */
+body[data-section="home"] {
+  background: linear-gradient(180deg, #1b2735, #090a0f);
+}
+
+body[data-section="about"] {
+  background: linear-gradient(180deg, #3a1c71, #d76d77, #ffaf7b);
+}
+
+body[data-section="ebay"] {
+  background: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
+}
+
+body[data-section="contact"] {
+  background: linear-gradient(180deg, #232526, #414345);
 }
