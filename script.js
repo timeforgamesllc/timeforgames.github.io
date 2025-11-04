@@ -44,4 +44,16 @@ async function loadListings() {
   }
 }
 
+// Background color scroll effect
+window.addEventListener("scroll", () => {
+  const sections = document.querySelectorAll(".section");
+  let scrollPos = window.scrollY + window.innerHeight / 2;
+
+  sections.forEach(sec => {
+    if (scrollPos > sec.offsetTop && scrollPos < sec.offsetTop + sec.offsetHeight) {
+      document.body.setAttribute("data-section", sec.id);
+    }
+  });
+});
+
 loadListings();
