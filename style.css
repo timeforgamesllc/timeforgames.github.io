@@ -27,15 +27,16 @@ body {
 /* Logo */
 .logo {
   font-family: "Henny Penny", cursive;
-  font-size: 2.6em; /* made bigger */
+  font-size: 2.8em;
   color: #ffcd00;
   text-decoration: none;
   transition: transform 0.3s ease;
   flex-shrink: 0;
+  margin-left: 1rem;
 }
 
 .logo:hover {
-  transform: scale(1.25); /* grows more noticeably */
+  transform: scale(1.35);
 }
 
 /* Navigation Links */
@@ -45,12 +46,12 @@ nav {
   align-items: center;
   gap: 2rem;
   flex: 1;
-  margin-right: 2rem; /* moves links further to the right */
+  margin-right: 3rem;
 }
 
 nav a {
   display: inline-block;
-  color: #3b82f6; /* lighter blue */
+  color: #3b82f6;
   text-decoration: none;
   font-size: 1.2rem;
   transition: transform 0.3s ease;
@@ -70,10 +71,9 @@ nav a:hover {
   align-items: center;
   justify-content: center;
   text-align: center;
-  transition: background-color 1s ease;
 }
 
-/* Section background colors */
+/* Section background colors (static fallback) */
 #hero { background-color: #1a1a1a; }
 #about { background-color: #2a2a2a; }
 #ebay { background-color: #3a3a3a; }
@@ -150,12 +150,16 @@ p {
   margin-top: 2rem;
 }
 
+/* Uniform cards */
 .card {
   position: relative;
   background: #1e1e1e;
   border-radius: 8px;
   overflow: hidden;
   transition: transform 0.2s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  height: 320px; /* uniform card height */
 }
 
 .card:hover {
@@ -165,8 +169,22 @@ p {
 
 .card img {
   width: 100%;
-  height: 220px;
+  height: 200px; /* consistent image size */
   object-fit: cover;
+  flex-shrink: 0;
+}
+
+.card h2 {
+  font-size: 1rem;
+  padding: 0.5rem;
+  margin: 0;
+  color: #ffcd00;
+}
+
+.card p {
+  padding: 0 0.5rem 0.5rem;
+  margin: 0;
+  color: #c9d1d9;
 }
 
 /* === Socials Section === */
@@ -230,5 +248,9 @@ footer {
 
   nav a {
     font-size: 1rem;
+  }
+
+  .card {
+    height: auto;
   }
 }
