@@ -1,20 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:wght@400;700&family=Henny+Penny&display=swap');
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Henny+Penny&family=Averia+Sans+Libre:wght@400;700&display=swap');
 
+/* Global */
+html {
+  scroll-behavior: smooth;
+}
 
-/* General Styles */
 body {
   margin: 0;
   font-family: "Averia Sans Libre", sans-serif;
   color: #f5f5f5;
-  line-height: 1.9;
-  font-size: 1.8rem;
-  font-weight: 400;
+  line-height: 1.8;
+  font-size: 1.5rem;
+  font-weight: 700;
   background-color: #121212;
-  transition: background-color 0.5s ease; /* smooth bg color transition */
-}
-
-html {
-  scroll-behavior: smooth; /* smooth scroll for links */
+  transition: background-color 0.8s ease;
 }
 
 /* Navbar */
@@ -29,19 +29,24 @@ html {
   z-index: 10;
 }
 
-.logo a {
-  font-family: 'Henny Penny', cursive;
-  font-size: 1.8em; /* slightly bigger for logo */
-  font-weight: normal;
+.logo {
+  font-family: "Henny Penny", cursive;
+  font-size: 2em;
+  font-weight: 400;
   color: #ffcd00;
   text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.1);
 }
 
 nav a {
   color: #c9d1d9;
   text-decoration: none;
   margin-left: 1.5em;
-  font-weight: 500;
+  font-weight: 700;
   transition: color 0.3s ease;
 }
 
@@ -58,6 +63,21 @@ nav a:hover {
   align-items: center;
   justify-content: center;
   text-align: center;
+  transition: background-color 1s ease;
+}
+
+/* Smooth color progression for each section */
+#hero {
+  background-color: #000000;
+}
+#about {
+  background-color: #1a1a1a;
+}
+#ebay {
+  background-color: #2a2a2a;
+}
+#socials {
+  background-color: #333333;
 }
 
 h1, h2 {
@@ -67,43 +87,46 @@ h1, h2 {
 
 p {
   color: #c9d1d9;
+  margin-bottom: 1.5em;
 }
 
-/* Listings Grid */
-#listings {
+/* eBay Listings Grid */
+.grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: auto;
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
   padding: 1rem;
 }
 
 .card {
   background: #1e1e1e;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
-  transition: transform 0.2s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-  transform: scale(1.03);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 205, 0, 0.3);
 }
 
 .card img {
   width: 100%;
-  height: 200px;
+  height: 220px;
   object-fit: cover;
 }
 
 .card h2 {
-  font-size: 1rem;
+  font-size: 1.3rem;
   padding: 0.5rem;
   margin: 0;
+  color: #ffcd00;
 }
 
 .card p {
-  padding: 0 0.5rem 0.5rem;
+  padding: 0 0.5rem 1rem;
   margin: 0;
+  color: #c9d1d9;
 }
 
 /* Socials */
@@ -111,7 +134,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1em;
+  gap: 1.5em;
   margin-top: 2em;
 }
 
@@ -120,6 +143,11 @@ p {
   display: block;
   overflow: hidden;
   border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.social-card:hover {
+  transform: scale(1.05);
 }
 
 .social-card img {
@@ -127,6 +155,7 @@ p {
   height: 200px;
   object-fit: cover;
   display: block;
+  border-radius: 12px;
 }
 
 .overlay-text {
@@ -138,7 +167,7 @@ p {
   font-weight: bold;
   padding: 0.5em;
   text-align: center;
-  font-size: 1.1em;
+  font-size: 1.2em;
 }
 
 /* Footer */
@@ -147,26 +176,22 @@ footer {
   padding: 1.5em;
   background-color: #161b22;
   color: #8b949e;
-  font-size: 0.9em;
+  font-size: 1.1em;
 }
 
 /* Responsive */
-@media (max-width: 1024px) {
-  #listings {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media (max-width: 768px) {
   .hero-text, .about img {
     width: 100%;
     padding: 0 1em;
   }
-  #listings {
-    grid-template-columns: 1fr;
-  }
+
   .social-card img {
     width: 100%;
     height: auto;
+  }
+
+  body {
+    font-size: 1.3rem;
   }
 }
