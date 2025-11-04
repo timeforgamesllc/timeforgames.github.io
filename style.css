@@ -104,7 +104,7 @@ p {
 .featured-item {
   position: relative;
   width: 80%;
-  max-width: 700px;
+  max-width: 1000px;
   border-radius: 10px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
