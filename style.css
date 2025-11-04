@@ -1,22 +1,21 @@
-/* ===== General Styles ===== */
 body {
   margin: 0;
   font-family: "Averia Sans Libre", sans-serif;
   color: #f5f5f5;
   line-height: 1.6;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 600;
-  background-color: #000000;
+  background-color: #1a1a1a;
   transition: background-color 1s ease;
 }
 
-/* ===== Navbar ===== */
+/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1em 3em;
-  background-color: #1a1a1a; /* Dark grey matches first section */
+  background-color: #1a1a1a;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -24,8 +23,7 @@ body {
 
 .logo {
   font-family: "Henny Penny", cursive;
-  font-size: 1.8em;
-  font-weight: 700;
+  font-size: 2em;
   color: #ffcd00;
   text-decoration: none;
   transition: transform 0.3s ease;
@@ -42,18 +40,18 @@ nav {
 }
 
 nav a {
-  color: #3b82f6; /* lighter blue */
+  display: inline-block;
+  color: #3b82f6;
   text-decoration: none;
   font-size: 1.2rem;
   transition: transform 0.3s ease;
-  white-space: nowrap;
 }
 
 nav a:hover {
   transform: scale(1.2);
 }
 
-/* ===== Sections ===== */
+/* Sections */
 .section {
   padding: 5em 2em;
   min-height: 100vh;
@@ -65,7 +63,6 @@ nav a:hover {
   transition: background-color 1s ease;
 }
 
-/* Shades of grey for each section */
 #hero { background-color: #1a1a1a; }
 #about { background-color: #2a2a2a; }
 #ebay { background-color: #3a3a3a; }
@@ -80,7 +77,7 @@ p {
   color: #c9d1d9;
 }
 
-/* ===== Listings ===== */
+/* Listings */
 #listings {
   display: flex;
   flex-direction: column;
@@ -88,7 +85,6 @@ p {
   gap: 2rem;
 }
 
-/* Featured item */
 .featured-item {
   position: relative;
   width: 80%;
@@ -109,9 +105,7 @@ p {
   object-fit: cover;
 }
 
-/* Overlay text for title and price */
-.featured-item .overlay-title,
-.card .overlay-title {
+.overlay-title {
   position: absolute;
   top: 0;
   width: 100%;
@@ -123,8 +117,7 @@ p {
   font-size: 1.2em;
 }
 
-.featured-item .price,
-.card .price {
+.price {
   position: absolute;
   bottom: 0.5em;
   right: 0.7em;
@@ -164,7 +157,7 @@ p {
   object-fit: cover;
 }
 
-/* ===== Socials ===== */
+/* Socials */
 .social-grid {
   display: flex;
   flex-wrap: wrap;
@@ -199,7 +192,7 @@ p {
   font-size: 1.1em;
 }
 
-/* ===== Footer ===== */
+/* Footer */
 footer {
   text-align: center;
   padding: 1.5em;
@@ -208,22 +201,11 @@ footer {
   font-size: 0.9em;
 }
 
-/* ===== Responsive ===== */
+/* Responsive */
 @media (max-width: 768px) {
-  .hero-text, .about img {
-    width: 100%;
-    padding: 0 1em;
-  }
-
-  .social-card img {
-    width: 100%;
-    height: auto;
-  }
-
   nav {
     gap: 1em;
   }
-
   nav a {
     font-size: 1rem;
   }
