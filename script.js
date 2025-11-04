@@ -1,29 +1,36 @@
-// Path to your JSON file
-const API_URL = "./listings.json";
-
 async function loadListings() {
+  const featuredDiv = document.getElementById("featured");
   const listingsDiv = document.getElementById("listings");
-  listingsDiv.innerHTML = "<p>Loading listings...</p>";
+  const loadingDiv = document.getElementById("loading");
 
   try {
-    const res = await fetch(API_URL);
+    const res = await fetch("listings.json");
     const data = await res.json();
 
-    listingsDiv.innerHTML = "";
+    loadingDiv.style.display = "none";
 
-    if (!data.itemSummaries || data.itemSummaries.length === 0) {
+    if (!data || data.length === 0) {
       listingsDiv.innerHTML = "<p>No listings found.</p>";
       return;
     }
 
-    // Take the first 6 listings for 2x3 grid
-    const listingsToShow = data.itemSummaries.slice(0, 6);
+    // Featured item (first)
+    const featured = data[0];
+    featuredDiv.innerHTML = `
+      <a href="${featured.url}" target="_blank">
+        <img src="${featured.image}" alt="${featured.title}">
+        <h2>${featured.title}</h2>
+        <p>💲${featured.price}</p>
+      </a>
+    `;
 
-    listingsToShow.forEach(item => {
+    // Next three items
+    const smallItems = data.slice(1, 4);
+    smallItems.forEach(item => {
       const card = document.createElement("div");
       card.className = "card";
       card.innerHTML = `
-        <a href="${item.link}" target="_blank">
+        <a href="${item.url}" target="_blank">
           <img src="${item.image}" alt="${item.title}" />
           <h2>${item.title}</h2>
           <p>💲${item.price}</p>
@@ -32,36 +39,9 @@ async function loadListings() {
       listingsDiv.appendChild(card);
     });
   } catch (err) {
-    listingsDiv.innerHTML = "<p>Error loading listings.</p>";
+    loadingDiv.innerText = "Error loading listings.";
     console.error(err);
   }
 }
 
-// Smooth background color scrolling
-const sections = document.querySelectorAll('.section');
-const sectionColors = {
-  hero: '#000000',
-  about: '#1a1a1a',
-  ebay: '#2a2a2a',
-  socials: '#333333'
-};
-
-window.addEventListener('scroll', () => {
-  const scrollY = window.scrollY + window.innerHeight / 2;
-
-  let currentSectionId = sections[0].id;
-
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.offsetHeight;
-
-    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-      currentSectionId = section.id;
-    }
-  });
-
-  document.body.style.backgroundColor = sectionColors[currentSectionId];
-});
-
-// Load listings on page load
 loadListings();
