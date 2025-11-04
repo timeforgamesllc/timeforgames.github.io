@@ -7,15 +7,15 @@ body {
   color: #f0f0f0;
   scroll-behavior: smooth;
   transition: background 1s ease;
-  background: #1a1a1a;
+  background: #1a1a1a; /* matches home section initially */
 }
 
-/* Header */
+/* Hero Header */
 .hero {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(26, 26, 26, 0.95);
+  background: rgba(26, 26, 26, 0.95); /* same as home section */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,6 +24,7 @@ body {
   backdrop-filter: blur(10px);
 }
 
+/* Logo */
 .logo {
   font-family: 'Henny Penny', cursive;
   font-size: 2.5rem;
@@ -36,9 +37,10 @@ body {
   transform: scale(1.1);
 }
 
+/* Navigation Links */
 .hero nav a {
   display: inline-block;
-  color: #1e3a8a;
+  color: #1e3a8a; /* blue links */
   text-decoration: none;
   margin-left: 1.8rem;
   font-size: 1.3rem;
@@ -71,94 +73,7 @@ body {
   line-height: 1.6;
 }
 
-/* eBay Listings */
-.listings-featured {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  width: 100%;
-}
-
-.featured-card {
-  width: 80%;
-  max-width: 800px;
-  background: #2a2a2a;
-  border-radius: 12px;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.featured-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 15px rgba(255, 205, 0, 0.3);
-}
-
-.featured-card img {
-  width: 100%;
-  height: 350px;
-  object-fit: cover;
-}
-
-.featured-card h2 {
-  font-size: 1.6rem;
-  color: #ffcd00;
-  padding: 0.5rem 1rem;
-}
-
-.featured-card p {
-  font-size: 1.3rem;
-  color: #c9d1d9;
-  padding: 0 1rem 1rem;
-}
-
-.small-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  width: 90%;
-}
-
-.small-grid .card {
-  background: #2a2a2a;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.small-grid .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(255, 205, 0, 0.2);
-}
-
-.small-grid img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.small-grid h2 {
-  font-size: 1.1rem;
-  padding: 0.5rem;
-  color: #ffcd00;
-}
-
-.small-grid p {
-  font-size: 1rem;
-  padding: 0 0.5rem 1rem;
-  color: #c9d1d9;
-}
-
-/* Footer */
-footer {
-  background: #1a1a1a;
-  color: #888;
-  text-align: center;
-  padding: 1.5rem 0;
-  font-size: 1rem;
-}
-
-/* Background color shades of grey per section */
+/* Background color shades per section */
 body[data-section="home"] {
   background: #1a1a1a;
 }
@@ -173,4 +88,141 @@ body[data-section="ebay"] {
 
 body[data-section="contact"] {
   background: #4d4d4d;
+}
+
+/* eBay Listings */
+.listings-featured {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+/* Featured Card */
+.featured-card {
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  background: #2a2a2a;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-card img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+}
+
+.featured-card h2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  color: #ffcd00;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  font-size: 1.6rem;
+  box-sizing: border-box;
+}
+
+.featured-card p {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  padding: 0.3rem 0.7rem;
+  margin: 0;
+  font-size: 1.3rem;
+  border-top-left-radius: 8px;
+}
+
+.featured-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px rgba(255, 205, 0, 0.3);
+}
+
+/* Small Cards Grid */
+.small-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  width: 90%;
+}
+
+.small-grid .card {
+  position: relative;
+  background: #2a2a2a;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.small-grid .card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.small-grid .card h2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  color: #ffcd00;
+  padding: 0.3rem 0.5rem;
+  margin: 0;
+  font-size: 1.1rem;
+  box-sizing: border-box;
+}
+
+.small-grid .card p {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  padding: 0.2rem 0.5rem;
+  margin: 0;
+  font-size: 1rem;
+  border-top-left-radius: 6px;
+}
+
+.small-grid .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 205, 0, 0.2);
+}
+
+/* Footer */
+footer {
+  background: #1a1a1a;
+  color: #888;
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero nav a {
+    margin-left: 1rem;
+  }
+
+  .featured-card img {
+    height: 250px;
+  }
+
+  .small-grid .card img {
+    height: 150px;
+  }
+
+  .section p {
+    padding: 0 1rem;
+  }
 }
