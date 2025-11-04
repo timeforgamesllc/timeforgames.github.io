@@ -36,6 +36,7 @@ body {
 }
 
 .hero nav a {
+  display: inline-block;
   color: #fff;
   text-decoration: none;
   margin-left: 1.8rem;
