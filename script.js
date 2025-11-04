@@ -1,59 +1,66 @@
+// Smooth background color transition
+const sections = document.querySelectorAll(".section");
+const colors = ["#1a1a1a", "#2a2a2a", "#3a3a3a", "#4a4a4a"];
+
+window.addEventListener("scroll", () => {
+  let index = sections.length - 1;
+  sections.forEach((section, i) => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top <= window.innerHeight / 2) {
+      index = i;
+    }
+  });
+  document.body.style.backgroundColor = colors[index];
+});
+
+// Load listings from JSON file
 async function loadListings() {
-  const featuredDiv = document.getElementById("featured");
   const listingsDiv = document.getElementById("listings");
-  const loadingDiv = document.getElementById("loading");
-
   try {
-    const res = await fetch("listings.json");
+    const res = await fetch("listings.json"); // your local JSON file
     const data = await res.json();
-
-    loadingDiv.style.display = "none";
 
     if (!data || data.length === 0) {
       listingsDiv.innerHTML = "<p>No listings found.</p>";
       return;
     }
 
-    // Featured item (first)
+    // Featured item
     const featured = data[0];
+    const featuredDiv = document.createElement("div");
+    featuredDiv.className = "featured-item";
     featuredDiv.innerHTML = `
       <a href="${featured.url}" target="_blank">
-        <img src="${featured.image}" alt="${featured.title}">
-        <h2>${featured.title}</h2>
-        <p>💲${featured.price}</p>
+        <img src="${featured.image}" alt="${featured.title}" />
+        <div class="overlay-title">${featured.title}</div>
+        <div class="price">💲${featured.price}</div>
       </a>
     `;
+    listingsDiv.appendChild(featuredDiv);
 
-    // Next three items
-    const smallItems = data.slice(1, 4);
-    smallItems.forEach(item => {
+    // Smaller items
+    const gridDiv = document.createElement("div");
+    gridDiv.className = "grid";
+
+    data.slice(1,4).forEach(item => {
       const card = document.createElement("div");
       card.className = "card";
       card.innerHTML = `
         <a href="${item.url}" target="_blank">
           <img src="${item.image}" alt="${item.title}" />
-          <h2>${item.title}</h2>
-          <p>💲${item.price}</p>
+          <div class="overlay-title">${item.title}</div>
+          <div class="price">💲${item.price}</div>
         </a>
       `;
-      listingsDiv.appendChild(card);
+      gridDiv.appendChild(card);
     });
+
+    listingsDiv.appendChild(gridDiv);
+
   } catch (err) {
-    loadingDiv.innerText = "Error loading listings.";
+    listingsDiv.innerHTML = "<p>Error loading listings.</p>";
     console.error(err);
   }
 }
-
-// Background color scroll effect
-window.addEventListener("scroll", () => {
-  const sections = document.querySelectorAll(".section");
-  let scrollPos = window.scrollY + window.innerHeight / 2;
-
-  sections.forEach(sec => {
-    if (scrollPos > sec.offsetTop && scrollPos < sec.offsetTop + sec.offsetHeight) {
-      document.body.setAttribute("data-section", sec.id);
-    }
-  });
-});
 
 loadListings();
