@@ -131,7 +131,8 @@ p {
   font-size: 1.2em;
 }
 
-.price {
+.featured-item .price,
+.card .price {
   position: absolute;
   bottom: 0.5em;
   right: 0.7em;
