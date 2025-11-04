@@ -14,6 +14,7 @@ body {
 .hero {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   background: rgba(26, 26, 26, 0.95); /* same as home section */
   display: flex;
@@ -22,6 +23,7 @@ body {
   padding: 1rem 3rem;
   z-index: 1000;
   backdrop-filter: blur(10px);
+  flex-wrap: wrap;
 }
 
 /* Logo */
