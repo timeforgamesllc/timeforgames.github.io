@@ -5,17 +5,16 @@ body {
   font-weight: bold;
   font-size: 1.3rem;
   color: #f0f0f0;
-  background: linear-gradient(180deg, #0b0c10, #1f2833);
   scroll-behavior: smooth;
-  transition: background 1.5s ease;
+  transition: background 1s ease;
 }
 
-/* Hero Header */
+/* Header */
 .hero {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(15, 15, 15, 0.9);
+  background: rgba(30, 30, 30, 0.9);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,7 +35,6 @@ body {
   transform: scale(1.1);
 }
 
-/* Navigation Links */
 .hero nav a {
   color: #fff;
   text-decoration: none;
@@ -52,7 +50,8 @@ body {
 /* Sections */
 .section {
   display: flex;
-  flex-directions: column;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   text-align: center;
   padding: 10rem 2rem;
@@ -62,6 +61,12 @@ body {
 
 .section h1, .section h2 {
   color: #ffcd00;
+  margin-bottom: 1rem;
+}
+
+.section p {
+  max-width: 600px;
+  line-height: 1.6;
 }
 
 /* eBay Listings */
@@ -76,7 +81,7 @@ body {
 .featured-card {
   width: 80%;
   max-width: 800px;
-  background: #1e1e1e;
+  background: #2a2a2a;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 0 15px rgba(255, 205, 0, 0.3);
@@ -105,7 +110,6 @@ body {
   padding: 0 1rem 1rem;
 }
 
-/* Smaller Listings */
 .small-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -114,7 +118,7 @@ body {
 }
 
 .small-grid .card {
-  background: #1e1e1e;
+  background: #2a2a2a;
   border-radius: 10px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -145,14 +149,14 @@ body {
 
 /* Footer */
 footer {
-  background: #0b0c10;
+  background: #1a1a1a;
   color: #888;
   text-align: center;
   padding: 1.5rem 0;
   font-size: 1rem;
 }
 
-/* Smooth background color transitions */
+/* Background color shades of grey per section */
 body[data-section="home"] {
   background: #1a1a1a;
 }
