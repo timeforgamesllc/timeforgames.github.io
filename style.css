@@ -17,7 +17,8 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
-  background-color: #1a1a1a; /* start with first section color */
+  background-color: #1a1a1a;
+  opacity: .9; /* start with first section color */
 }
 
 .logo {
