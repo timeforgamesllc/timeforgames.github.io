@@ -26,6 +26,7 @@ body {
   color: #ffcd00;
   cursor: pointer;
   transition: transform 0.3s;
+  text-decoration: none;
 }
 
 .logo:hover {
