@@ -156,6 +156,8 @@ p {
   display: block;
   overflow: hidden;
   border-radius: 12px;
+  width: 300px;
+  height: 200px;
 }
 
 .social-card img {
@@ -163,6 +165,7 @@ p {
   height: 200px;
   object-fit: cover;
   display: block;
+  object-position: center;
 }
 
 .overlay-text {
